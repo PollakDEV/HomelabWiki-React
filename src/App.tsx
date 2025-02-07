@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Homepage from './pages/Homepage';
 import Blog from './pages/Blog';
 import AppRepository from './pages/AppRepository';
@@ -10,7 +10,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
-      <Header />
+      <Navbar />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Homepage />} />
