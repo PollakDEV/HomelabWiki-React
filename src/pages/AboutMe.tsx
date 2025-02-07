@@ -77,22 +77,23 @@ const AboutMe = () => {
   }, []);
 
   useEffect(() => {
-    const projectCards = document.querySelectorAll('.project-card');
-
-    function handleMouseMove(e: MouseEvent) {
+    const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
+  
+    function handleMouseMove(e: Event) {
+      const mouseEvent = e as MouseEvent;
       const target = e.currentTarget as HTMLElement;
       const rect = target.getBoundingClientRect();
-      target.style.setProperty('--x', `${e.clientX - rect.left}px`);
-      target.style.setProperty('--y', `${e.clientY - rect.top}px`);
+      target.style.setProperty('--x', `${mouseEvent.clientX - rect.left}px`);
+      target.style.setProperty('--y', `${mouseEvent.clientY - rect.top}px`);
     }
-
+  
     projectCards.forEach(card => {
-      card.addEventListener('mousemove', handleMouseMove);
+      card.addEventListener('mousemove', handleMouseMove as EventListener);
     });
-
+  
     return () => {
       projectCards.forEach(card => {
-        card.removeEventListener('mousemove', handleMouseMove);
+        card.removeEventListener('mousemove', handleMouseMove as EventListener);
       });
     };
   }, []);

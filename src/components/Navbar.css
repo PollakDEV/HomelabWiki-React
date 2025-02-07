@@ -1,0 +1,224 @@
+/* Navbar.css */
+:root {
+    --nav-bg: rgba(18, 18, 18, 0.95);
+    --text-primary: #f0f0f0;
+    --accent: #00ff88;
+    --nav-border: rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--nav-border);
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    max-width: 1400px;
+  }
+  
+  .navbar.hidden {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  
+  .navbar-logo {
+    height: 35px;
+    width: auto;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    position: relative;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 8px 12px;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
+  
+  .link-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover .link-hover {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .nav-link:hover {
+    color: var(--accent);
+  }
+  
+  .nav-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-search input {
+    padding: 8px 16px;
+    padding-right: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--nav-border);
+    border-radius: 30px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-search input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .search-icon:hover {
+    color: var(--accent);
+  }
+  
+  /* Mobile Styles */
+  .hamburger {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburger-line {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--text-primary);
+    margin: 6px 0;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger.active .top {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.active .middle {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bottom {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .mobile-menu {
+    position: fixed;
+    top: 65px;
+    left: 6%;
+    right: 6%;
+    width: 88%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Remove all border-related properties */
+    box-shadow: none;
+  }
+  
+  .mobile-menu.open {
+    max-height: 500px;
+    padding: 20px;
+    box-shadow: 0 0 0 1px var(--nav-border), 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .mobile-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+  }
+  
+  .mobile-links .nav-link {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: background 0.3s ease;
+  }
+  
+  .mobile-links .nav-link:hover {
+    background: rgba(0, 255, 136, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      top: 10px;
+      width: 88%;
+      padding: 0.8rem 1rem;
+    }
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .navbar-brand {
+      font-size: 1.6rem;
+    }
+  
+    .navbar-logo {
+      height: 30px;
+    }
+  
+    .nav-search input {
+      width: 100%;
+    }
+  }
