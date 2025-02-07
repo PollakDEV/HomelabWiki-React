@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'hidden' : ''}`}>
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/">
           <img 
             src="src/assets/logo-main.png"
             alt="Logo" 
@@ -62,8 +62,7 @@ const Navbar = () => {
             <button 
               className={`hamburger ${isMenuOpen ? 'active' : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
+              aria-label="Toggle menu">
               <span className="hamburger-line top"></span>
               <span className="hamburger-line middle"></span>
               <span className="hamburger-line bottom"></span>

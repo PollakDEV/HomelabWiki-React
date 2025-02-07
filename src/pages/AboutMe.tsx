@@ -1,14 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './AboutMe.css';
 import '../global.css';
 
 const AboutMe = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const isProcessing = useRef(false);
+  const animationQueue = useRef<Promise<void>>(Promise.resolve());
+
   useEffect(() => {
+    const checkMobile = () => setIsMobile(/Mobi|Android/i.test(navigator.userAgent));
+    checkMobile();
+    
     const terminal = document.getElementById('terminal');
     const terminalSection = document.getElementById('terminal-section');
     const contentSection = document.getElementById('content-section');
-
-    let isProcessing = false;
 
     async function typeText(text: string, speed = 40, elementClass = 'terminal-command') {
       if (!terminal) return;
@@ -23,58 +28,82 @@ const AboutMe = () => {
     }
 
     async function startTerminalAnimation() {
-      if (isProcessing || !terminalSection || !contentSection || !terminal) return;
-      isProcessing = true;
+      if (!terminalSection || !contentSection || !terminal) return;
+      
+      // Clear previous content
+      terminal.textContent = '';
+      isProcessing.current = true;
 
-      // Initial command
-      await typeText('./portfolio.sh');
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Error message
-      const error = document.createElement('div');
-      error.className = 'terminal-error';
-      error.textContent = 'Error: This script requires sudo privileges';
-      terminal.appendChild(error);
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      // Sudo command
-      terminal.appendChild(document.createTextNode('\n$ '));
-      await typeText('sudo ./portfolio.sh');
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Countdown
-      terminal.appendChild(document.createTextNode('\n\nLaunching portfolio in '));
-      const countdown = document.createElement('span');
-      countdown.className = 'terminal-command';
-      terminal.appendChild(countdown);
-
-      for (let i = 3; i > 0; i--) {
-        countdown.textContent += `${i}..`;
+      // Wrap animation steps in queue
+      animationQueue.current = animationQueue.current.then(async () => {
+        // Initial command
+        await typeText('./portfolio.sh');
         await new Promise(resolve => setTimeout(resolve, 1000));
-      }
 
-      // Transition
-      terminalSection.classList.add('hidden');
-      contentSection.style.display = 'block';
+        // Error message
+        const error = document.createElement('div');
+        error.className = 'terminal-error';
+        error.textContent = 'Error: This script requires sudo privileges';
+        terminal.appendChild(error);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Sudo command
+        terminal.appendChild(document.createTextNode('\n$ '));
+        await typeText('sudo ./portfolio.sh');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Countdown
+        terminal.appendChild(document.createTextNode('\n\nLaunching portfolio in '));
+        const countdown = document.createElement('span');
+        countdown.className = 'terminal-command';
+        terminal.appendChild(countdown);
+
+        for (let i = 3; i > 0; i--) {
+          countdown.textContent += `${i}..`;
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        // Transition
+        terminalSection.classList.add('hidden');
+        contentSection.style.display = 'block';
+      }).finally(() => {
+        isProcessing.current = false;
+      });
+    }
+
+    function handleActivation() {
+      if (isProcessing.current || !terminal) return;
+      startTerminalAnimation();
+      
+      // Remove listeners
+      document.removeEventListener('keypress', handleKeyPress);
+      terminal.removeEventListener('click', handleActivation);
     }
 
     function handleKeyPress(e: KeyboardEvent) {
-      if (e.key === 'Enter' && terminal) {
-        terminal.textContent = '$ ';
-        startTerminalAnimation();
-        document.removeEventListener('keypress', handleKeyPress);
+      if (e.key === 'Enter') {
+        handleActivation();
       }
     }
 
     if (terminal) {
-      terminal.textContent = 'Press Enter to continue...';
-      document.addEventListener('keypress', handleKeyPress);
+      terminal.textContent = isMobile ? 'Tap here to continue...' : 'Press Enter to continue...';
+      
+      if (isMobile) {
+        terminal.style.cursor = 'pointer';
+        terminal.addEventListener('click', handleActivation);
+      } else {
+        document.addEventListener('keypress', handleKeyPress);
+      }
     }
 
     return () => {
       document.removeEventListener('keypress', handleKeyPress);
+      if (terminal) {
+        terminal.removeEventListener('click', handleActivation);
+      }
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
