@@ -1,11 +1,4 @@
 /* Navbar.css */
-:root {
-  --nav-bg: rgba(18, 18, 18, 0.6);
-  --text-primary: #f0f0f0;
-  --accent: #00ff88;
-  --nav-border: rgba(255, 255, 255, 0.1);
-}
-
 .navbar {
   position: fixed;
   top: 20px;
@@ -151,9 +144,8 @@
 .mobile-menu {
   position: fixed;
   top: 65px;
-  left: 6%;
-  right: 6%;
-  width: 88%;
+  left: 4%;
+  right: 4%;
   background: var(--nav-bg);
   backdrop-filter: blur(15px);
   border-radius: 25px;

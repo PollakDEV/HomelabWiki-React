@@ -1,22 +1,26 @@
 :root {
-    /* Dark Theme */
-    --clrPrimary: #1a1a1a;
-    --clrSecondary: #009FFD;
-    --clrAccent: #00C896;     /* Lighter Indigo */
-    --clrBackground: #182020;      /* Lighter Emerald */
-    --clrText: #E5E7EB;        /* Gray-200 */
-    --clrText-light: #9CA3AF;  /* Gray-400 */
-  }
-  /* Base Styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* Dark Theme */
+  --clrPrimary: #1a1a1a;
+  --clrSecondary: #009FFD;
+  --clrAccent: #00C896;     /* Lighter Indigo */
+  --clrBackground: #182020;      /* Lighter Emerald */
+  --clrText: #E5E7EB;        /* Gray-200 */
+  --clrText-light: #9CA3AF;  /* Gray-400 */
   
-  body {
-    font-family: 'Robo', sans-serif;
-    color: var(--clrText);
-    transition: background-color 0.3s, color 0.3s;
-    background-color: var(--clrBackground);
-  }
+  /* Navbar */
+  --nav-bg: rgba(18, 18, 18, 0.2);
+  --text-primary: #f0f0f0;
+  --accent: #00ff88;
+  --nav-border: rgba(255, 255, 255, 0.1);
+}
+/* Base Styles */  
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Robo', sans-serif;
+  color: var(--clrText);
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--clrBackground);
+}

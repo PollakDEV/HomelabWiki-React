@@ -1,0 +1,146 @@
+/* Global styles */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(45deg, #0a0a12, #1a1a2e);
+  overflow: hidden;
+}
+
+/* Particle field */
+.particleField {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(188, 0, 221, 0.4);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: float linear infinite;
+  bottom: -10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-10vw) translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(10vw) translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Glass container */
+.glassContainer {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  background: rgba(25, 25, 35, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 0 auto;
+  top: 25vh;
+}
+
+/* Title */
+.title {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.03em;
+}
+
+.gradientText {
+  background: linear-gradient(45deg, #00f7ff, #bc00dd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Terminal */
+.terminal {
+  background: rgba(15, 15, 25, 0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.terminal:hover {
+  transform: translateY(-5px);
+}
+
+.terminalHeader {
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 0.6rem;
+}
+
+.terminalButtons span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.closeButton { background: #ff5f56; }
+.minimizeButton { background: #ffbd2e; }
+.expandButton { background: #27c93f; }
+
+.terminalContent {
+  padding: 1.5rem;
+  color: #00ff9d;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  min-height: 150px;
+  white-space: pre-wrap;
+  position: relative;
+  min-height: 150px;
+}
+
+.textContainer {
+  transition: opacity 0.3s ease;
+  white-space: pre;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: #00ff9d;
+  margin-left: 1px;
+  animation: blink 1.1s infinite;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .glassContainer {
+    top: 15vh;
+    margin: 0 1rem;
+  }
+}
