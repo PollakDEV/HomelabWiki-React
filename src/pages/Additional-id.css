@@ -1,0 +1,29 @@
+/* Terminal Section */
+#terminal-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70vh;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: #fff;
+    overflow: hidden;
+    transition: opacity 1s;
+    z-index: 900;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.terminal-command {
+    color: #00ff00;
+}
+
+.terminal-error {
+    color: #ff4444;
+}
