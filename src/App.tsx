@@ -6,6 +6,7 @@ import AppRepository from './pages/AppRepository';
 import Documentation from './pages/Documentation';
 import AboutMe from './pages/AboutMe';
 import './App.css';
+import './global.css';
 
 const App = () => {
   return (

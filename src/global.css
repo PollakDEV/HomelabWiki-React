@@ -1,12 +1,11 @@
 :root {
     /* Dark Theme */
-    --clr-primary: #1a1a1a;
-    --clr-secoundary: #009FFD;
-    --clr-accent: #00C896;     /* Lighter Indigo */
-    --clr-background: #182020;      /* Lighter Emerald */
-    --clr-text: #E5E7EB;        /* Gray-200 */
-    --clr-text-light: #9CA3AF;  /* Gray-400 */
-    --clr-background: #021919; /* Gray-900 */
+    --clrPrimary: #1a1a1a;
+    --clrSecondary: #009FFD;
+    --clrAccent: #00C896;     /* Lighter Indigo */
+    --clrBackground: #182020;      /* Lighter Emerald */
+    --clrText: #E5E7EB;        /* Gray-200 */
+    --clrText-light: #9CA3AF;  /* Gray-400 */
   }
   /* Base Styles */
   * {
@@ -17,6 +16,7 @@
   
   body {
     font-family: 'Robo', sans-serif;
-    color: var(--clr-text);
+    color: var(--clrText);
     transition: background-color 0.3s, color 0.3s;
+    background-color: var(--clrBackground);
   }
