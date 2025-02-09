@@ -1,112 +1,44 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+// Homepage.tsx
+import { useState, useEffect } from 'react';
 import styles from './Homepage.module.css';
 
-const Homepage = () => {
-  const [typedText, setTypedText] = useState('');
-  const commands = [
-    'sudo apt-get update',
-    'docker compose up -d',
-    'kubectl get pod plex'
-  ];
-  const animationRef = useRef<number | null>(null);
-  const stateRef = useRef({
-    currentIndex: 0,
-    charIndex: 0,
-    isDeleting: false,
-    typingSpeed: 100
-  });
+export default function Homepage() {
+  const [currentWord, setCurrentWord] = useState(0);
+  const words = ['self-hosting', 'freedom', 'security', 'privacy', 'control'];
 
   useEffect(() => {
-    const type = () => {
-      const { currentIndex, charIndex, isDeleting } = stateRef.current;
-      const currentCommand = commands[currentIndex];
-
-      if (!isDeleting) {
-        if (charIndex <= currentCommand.length) {
-          setTypedText(currentCommand.slice(0, charIndex));
-          stateRef.current.charIndex++;
-          stateRef.current.typingSpeed = 100;
-        } else {
-          stateRef.current.typingSpeed = 2000;
-          stateRef.current.isDeleting = true;
-        }
-      } else {
-        if (charIndex >= 0) {
-          setTypedText(currentCommand.slice(0, charIndex));
-          stateRef.current.charIndex--;
-          stateRef.current.typingSpeed = 50;
-        } else {
-          stateRef.current.currentIndex = (currentIndex + 1) % commands.length;
-          stateRef.current.isDeleting = false;
-          stateRef.current.charIndex = 0; // Reset charIndex when switching commands
-          stateRef.current.typingSpeed = 500;
-        }
-      }
-
-      animationRef.current = requestAnimationFrame(() => 
-        setTimeout(type, stateRef.current.typingSpeed)
-      );
-    };
-
-    animationRef.current = requestAnimationFrame(type);
-    
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
-  const particles = useMemo(() => 
-    Array.from({ length: 30 }).map((_, i) => {
-      const animationDelay = Math.random() * -20;
-      const animationDuration = 10 + Math.random() * 15;
-      const startX = Math.random() * 100;
-
-      return (
-        <span 
-          key={`particle-${i}`}
-          className={styles.particle}
-          style={{
-            left: `${startX}%`,
-            animationDelay: `${animationDelay}s`,
-            animationDuration: `${animationDuration}s`,
-          }}
-        />
-      );
-    }),
-  []);
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [words.length]);
 
   return (
-    <section>
-
+    <div className={styles.container}>
       <section className={styles.hero}>
-      <div className={styles.particleField}>{particles}</div>
-      
-      <div className={styles.glassContainer}>
-        <h1 className={styles.title}>
-          <span className={styles.gradientText}>Homelab</span>Wiki
-        </h1>
-        
-        <div className={styles.terminal}>
-          <div className={styles.terminalHeader}>
-            <div className={styles.terminalButtons}>
-              <span className={styles.closeButton} />
-              <span className={styles.minimizeButton} />
-              <span className={styles.expandButton} />
+        <div className={styles.heroContent}>
+          <h1 className={styles.title}>
+            <span>Homelab</span>
+            <span>Wiki</span>
+          </h1>
+          <div className={styles.subtitle}>
+            Your journey into
+            <div className={styles.typing} key={currentWord}>
+              {words[currentWord]}
             </div>
+            starts here
           </div>
-      <pre className={styles.terminalContent}>
-        <span className={styles.textContainer}>
-        <span className={styles.prompt}>$ </span> {typedText || '\u00A0'}
-        <span className={styles.caret} /></span>
-          </pre>
+          <div className={styles.buttons}>
+            <button className={styles.primaryButton}>Explore Docs</button>
+            <button className={styles.secondaryButton}>View Apps</button>
+          </div>
         </div>
-      </div>
-    </section>
-    
-    </section>
-  );
-};
+      </section>
 
-export default Homepage;
+      <button className={styles.scrollButton}>
+        <span className={styles.scrollArrow}></span>
+        Scroll Down
+      </button>
+    </div>
+  );
+}

@@ -1,146 +1,125 @@
-/* Global styles */
+/* Homepage.module.css */
+.container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(45deg, #0a0a12, #1a1a2e);
+}
+
 .hero {
   position: relative;
-  height: 100vh;
-  background: linear-gradient(45deg, #0a0a12, #1a1a2e);
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 10%;
+  z-index: 1;
 }
 
-/* Particle field */
-.particleField {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.particle {
-  position: absolute;
-  background: rgba(188, 0, 221, 0.4);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  animation: float linear infinite;
-  bottom: -10px;
-}
-
-@keyframes float {
-  0% {
-    transform: translateX(-10vw) translateY(0);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateX(10vw) translateY(-110vh);
-    opacity: 0;
-  }
-}
-
-/* Glass container */
-.glassContainer {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  background: rgba(25, 25, 35, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.heroContent {
+  text-align: center;
   max-width: 800px;
-  margin: 0 auto;
-  top: 25vh;
 }
 
-/* Title */
 .title {
   font-size: 4rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  letter-spacing: -0.03em;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 2rem;
 }
 
-.gradientText {
-  background: linear-gradient(45deg, #00f7ff, #bc00dd);
-  background-clip: text;
+.title span {
+  display: block;
+  background: linear-gradient(45deg, var(--clrSecondary), var(--clrAccent));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-/* Terminal */
-.terminal {
-  background: rgba(15, 15, 25, 0.9);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.terminal:hover {
-  transform: translateY(-5px);
-}
-
-.terminalHeader {
-  padding: 0.8rem;
-  background: rgba(0, 0, 0, 0.3);
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  min-height: 6rem;
   display: flex;
-  gap: 0.6rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.terminalButtons span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
+.typing {
+  color: var(--clrSecondary);
+  font-size: 2rem;
+  font-weight: bold;
+  animation: slideUp 0.5s ease-in-out;
 }
 
-.closeButton { background: #ff5f56; }
-.minimizeButton { background: #ffbd2e; }
-.expandButton { background: #27c93f; }
-
-.terminalContent {
-  padding: 1.5rem;
-  color: #00ff9d;
-  font-family: 'Fira Code', monospace;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  min-height: 150px;
-  white-space: pre-wrap;
-  position: relative;
-  min-height: 150px;
-}
-
-.textContainer {
-  transition: opacity 0.3s ease;
-  white-space: pre;
-}
-
-.caret {
-  display: inline-block;
-  width: 2px;
-  height: 1.2em;
-  background: #00ff9d;
-  margin-left: 1px;
-  animation: blink 1.1s infinite;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-  opacity: 1;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .title {
-    font-size: 2.5rem;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .glassContainer {
-    top: 15vh;
-    margin: 0 1rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.scrollButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  color: var(--clrSecondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  animation: float 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.scrollArrow {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--clrSecondary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  animation: arrowBounce 1s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50% { transform: translateY(-10px) rotate(45deg); }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primaryButton {
+  background: linear-gradient(45deg, var(--clrSecondary), var(--clrAccent));
+  color: white;
+}
+
+.secondaryButton {
+  background: transparent;
+  border: 2px solid var(--clrSecondary);
+  color: var(--clrSecondary);
+}
+
+.primaryButton:hover, .secondaryButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
 }
