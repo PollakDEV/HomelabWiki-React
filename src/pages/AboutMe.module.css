@@ -76,7 +76,7 @@
 /* Content Section */
 .hero {
     text-align: center;
-    padding: 12rem 0;
+    padding: 12rem 0.5rem;
     opacity: 0;
     animation: fadeIn 1s forwards;
     animation-delay: 0.5s;
@@ -101,7 +101,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
-    margin: 4rem 4rem;
+    margin: 4rem 12rem;
 }
 
 .skillItem {

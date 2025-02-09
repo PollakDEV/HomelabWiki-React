@@ -78,7 +78,9 @@ const Homepage = () => {
   []);
 
   return (
-    <section className={styles.hero}>
+    <section>
+
+      <section className={styles.hero}>
       <div className={styles.particleField}>{particles}</div>
       
       <div className={styles.glassContainer}>
@@ -101,6 +103,8 @@ const Homepage = () => {
           </pre>
         </div>
       </div>
+    </section>
+    
     </section>
   );
 };
