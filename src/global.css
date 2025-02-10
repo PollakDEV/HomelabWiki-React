@@ -3,9 +3,7 @@
   --clrPrimary: #1a1a1a;
   --clrSecondary: #009FFD;
   --clrAccent: #c300ff;     /* Lighter Indigo */
-  --clrBackground: #182020;      /* Lighter Emerald */
-  --clrText: #E5E7EB;        /* Gray-200 */
-  --clrText-light: #9CA3AF;  /* Gray-400 */
+  --clrText: #ebe5e5;        /* Gray-200 */
   
   /* Navbar */
   --nav-bg: rgba(18, 18, 18, 0.2);
@@ -22,5 +20,5 @@ body {
   font-family: 'Robo', sans-serif;
   color: var(--clrText);
   transition: background-color 0.3s, color 0.3s;
-  background-color: var(--clrBackground);
+  background: linear-gradient(45deg, #0a0a12, #1a1a2e);
 }

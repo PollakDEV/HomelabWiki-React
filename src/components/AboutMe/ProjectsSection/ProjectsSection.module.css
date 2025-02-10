@@ -1,0 +1,153 @@
+.projectsSection {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+  }
+  
+  .projectsSection h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: var(--clrSecondary);
+    position: relative;
+  }
+  
+  .projectsSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--clrAccent);
+  }
+  
+  .projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    position: relative;
+  }
+  
+  .projectCard {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    /* CSS variables for the mouse position */
+    --x: 0;
+    --y: 0;
+  }
+  
+  .cardHover {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--x) var(--y), rgba(0, 159, 253, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .projectCard:hover .cardHover {
+    opacity: 1;
+  }
+  
+  .previewContainer {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+  }
+  
+  .previewOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .projectPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectCard:hover .projectPreview {
+    transform: scale(1.05);
+  }
+  
+  .projectInfo {
+    padding: 1.5rem;
+  }
+  
+  .techStack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  
+  .techTag {
+    background: rgba(0, 159, 253, 0.1);
+    color: var(--clrSecondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .techTag:hover {
+    transform: translateY(-2px);
+    background: var(--clrSecondary);
+    color: var(--dark);
+  }
+  
+  .projectLinks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  .linkButton {
+    position: relative;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .linkButton.demo {
+    background: linear-gradient(45deg, var(--clrSecondary), var(--clrAccent));
+    color: white;
+  }
+  
+  .linkTrail {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 100%;
+    left: -60px;
+    top: 0;
+    transform: skewX(-30deg);
+    transition: left 0.3s ease;
+  }
+  
+  .linkButton:hover .linkTrail {
+    left: 110%;
+  }
+  
+  .projectCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  @media (max-width: 768px) {
+    .projectGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

@@ -1,4 +1,3 @@
-/* Navbar.css */
 .navbar {
   position: fixed;
   top: 20px;
@@ -16,12 +15,12 @@
   max-width: 1400px;
 }
 
-.navbar.hidden {
+.hidden {
   transform: translate(-50%, -150%);
   opacity: 0;
 }
 
-.navbar-container {
+.navbarContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,13 +28,13 @@
   margin: 0 auto;
 }
 
-.navbar-logo {
+.navbarLogo {
   height: 38px;
   width: auto;
   display: block;
 }
 
-.nav-links {
+.navLinks {
   display: flex;
   gap: 1.5rem;
   list-style: none;
@@ -43,7 +42,7 @@
   padding: 0;
 }
 
-.nav-link {
+.navLink {
   position: relative;
   color: var(--text-primary);
   text-decoration: none;
@@ -52,34 +51,34 @@
   transition: color 0.3s ease;
 }
 
-.link-hover {
+.linkHover {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--accent);
+  background: var(--clrSecondary);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
 }
 
-.nav-link:hover .link-hover {
+.navLink:hover .linkHover {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.nav-link:hover {
-  color: var(--accent);
+.navLink:hover {
+  color: var(--clrSecondary);
 }
 
-.nav-search {
+.navSearch {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.nav-search input {
+.navSearchInput {
   padding: 8px 16px;
   padding-right: 35px;
   background: rgba(255, 255, 255, 0.1);
@@ -90,13 +89,13 @@
   transition: all 0.3s ease;
 }
 
-.nav-search input:focus {
+.navSearchInput:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
 }
 
-.search-icon {
+.searchIcon {
   position: absolute;
   right: 12px;
   background: none;
@@ -107,7 +106,7 @@
   transition: color 0.3s ease;
 }
 
-.search-icon:hover {
+.searchIcon:hover {
   color: var(--accent);
 }
 
@@ -120,7 +119,7 @@
   z-index: 1001;
 }
 
-.hamburger-line {
+.hamburgerLine {
   display: block;
   width: 30px;
   height: 2px;
@@ -129,19 +128,19 @@
   transition: all 0.3s ease;
 }
 
-.hamburger.active .top {
+.hamburgerActive .top {
   transform: translateY(8px) rotate(45deg);
 }
 
-.hamburger.active .middle {
+.hamburgerActive .middle {
   opacity: 0;
 }
 
-.hamburger.active .bottom {
+.hamburgerActive .bottom {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-.mobile-menu {
+.mobileMenu {
   position: fixed;
   top: 65px;
   left: 4%;
@@ -156,28 +155,30 @@
   box-shadow: none;
 }
 
-.mobile-menu.open {
+.mobileMenuOpen {
   max-height: 500px;
   padding: 20px;
   box-shadow: 0 0 0 1px var(--nav-border), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.mobile-links {
+.mobileLinks {
   list-style: none;
   padding: 0;
   margin: 20px 0 0 0;
 }
 
-.mobile-links .nav-link {
+.mobileNavLink {
   display: block;
   padding: 15px;
   margin: 10px 0;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.05);
   transition: background 0.3s ease;
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
-.mobile-links .nav-link:hover {
+.mobileNavLink:hover {
   background: rgba(0, 255, 136, 0.1);
 }
 
@@ -188,19 +189,15 @@
     padding: 0.6rem 1rem;
   }
 
-  .nav-links {
+  .navLinks {
     display: none;
   }
 
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
-
-  .navbar-logo {
+  .navbarLogo {
     height: 30px;
   }
 
-  .nav-search input {
+  .navSearchInput {
     width: 100%;
   }
 }

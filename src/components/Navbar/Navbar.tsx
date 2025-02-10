@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import styles from './Navbar.module.css';
+import logo from '../../assets/logo-main.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,34 +47,30 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'hidden' : ''}`}>
-      <div className="navbar-container">
+    <nav className={`${styles.navbar} ${isScrolled ? styles.hidden : ''}`}>
+      <div className={styles.navbarContainer}>
         <Link to="/">
-          <img 
-            src="src/assets/logo-main.png"
-            alt="Logo" 
-            className="navbar-logo"
-          />
+          <img src={logo} alt="Logo" className={styles.navbarLogo} />
         </Link>
 
         {isMobile ? (
           <>
             <button 
-              className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+              className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu">
-              <span className="hamburger-line top"></span>
-              <span className="hamburger-line middle"></span>
-              <span className="hamburger-line bottom"></span>
+              <span className={styles.hamburgerLine}></span>
+              <span className={styles.hamburgerLine}></span>
+              <span className={styles.hamburgerLine}></span>
             </button>
 
-            <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-              <ul className="mobile-links">
+            <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
+              <ul className={styles.mobileLinks}>
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link 
                       to={link.path} 
-                      className="nav-link"
+                      className={styles.mobileNavLink}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}
@@ -82,37 +78,39 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
-              <form onSubmit={handleSearch} className="nav-search">
+              <form onSubmit={handleSearch} className={styles.navSearch}>
                 <input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  className={styles.navSearchInput}
                 />
-                <button type="submit" className="search-icon">⌗</button>
+                <button type="submit" className={styles.searchIcon}>⌗</button>
               </form>
             </div>
           </>
         ) : (
           <>
-            <ul className="nav-links">
+            <ul className={styles.navLinks}>
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="nav-link">
-                    <span className="link-hover"></span>
+                  <Link to={link.path} className={styles.navLink}>
+                    <span className={styles.linkHover}></span>
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-            <form onSubmit={handleSearch} className="nav-search">
+            <form onSubmit={handleSearch} className={styles.navSearch}>
               <input
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                className={styles.navSearchInput}
               />
-              <button type="submit" className="search-icon">⨳</button>
+              <button type="submit" className={styles.searchIcon}>⨳</button>
             </form>
           </>
         )}

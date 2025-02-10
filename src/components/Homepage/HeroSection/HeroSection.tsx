@@ -25,7 +25,7 @@ export const HeroSection = () => {
           <Link to="/documentation" className={styles.primaryButton}>
             Explore Docs
           </Link>
-          <Link to="/apps" className={styles.secondaryButton}>
+          <Link to="/app-repository" className={styles.secondaryButton}>
             View Apps
           </Link>
         </div>

@@ -1,0 +1,80 @@
+.terminalSection {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70vh;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    overflow: hidden;
+    transition: opacity 1s;
+    z-index: 900;
+  }
+  
+  .terminalHeader {
+    padding: 10px;
+    background: #2d2d2d;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  
+  .terminalButtons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .terminalButton {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .close {
+    background: #ff5f56;
+  }
+  
+  .minimize {
+    background: #ffbd2e;
+  }
+  
+  .expand {
+    background: #27c93f;
+  }
+  
+  .terminalContent {
+    padding: 20px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .terminalCommand {
+    color: #00ff00;
+  }
+  
+  .terminalError {
+    color: #ff4444;
+  }
+  
+  @media (max-width: 640px) {
+    .terminalSection {
+      width: 90% !important;
+      height: 60vh !important;
+      margin-top: 20px;
+    }
+  }
+  
