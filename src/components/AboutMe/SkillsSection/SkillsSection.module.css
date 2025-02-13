@@ -1,8 +1,8 @@
 .skillsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
     gap: 2rem;
-    margin: 4rem 12rem;
+    margin: 4rem 1rem;
   }
   
   .skillItem {
@@ -15,6 +15,25 @@
     border-radius: 10px;
     transform: translateY(20px);
   }
+
+  /* Medium screens: Switch to 2 columns */
+@media (max-width: 1024px) {
+  .skillsGrid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      gap: 2rem;
+      margin: 4rem 1rem;
+  }
+}
+
+/* Small screens: Switch to 1 column */
+@media (max-width: 768px) {
+  .skillsGrid {
+      grid-template-columns: 1fr; /* 1 column */
+      margin: 0 auto;
+      padding: 0;
+      width: calc(100% - 24px);
+  }
+}
   
   .skillItem:nth-child(1) {
     animation-delay: 0.6s;
@@ -90,14 +109,13 @@
       opacity: 0.3;
     }
     50% {
-      opacity: 1;
+      opacity: 1;/*  */
     }
   }
   
   @media (max-width: 768px) {
     .skillsGrid {
       grid-template-columns: 1fr;
-      gap: 1rem;
       padding: 0;
       width: calc(100% - 24px);
       margin: 0 auto;

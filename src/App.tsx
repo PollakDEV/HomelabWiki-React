@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import Homepage from './pages/Homepage';
 import Blog from './pages/Blog';
 import AppRepository from './pages/AppRepository';
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/about-me" element={<AboutMe />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 };
