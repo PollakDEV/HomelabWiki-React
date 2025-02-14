@@ -11,8 +11,7 @@ export const HeroSection = () => {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.title}>
-          <span>Homelab</span>
-          <span>Wiki</span>
+          <span>Homelab Wiki</span>
         </h1>
         <div className={styles.subtitle}>
           Your journey into
