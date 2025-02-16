@@ -20,6 +20,7 @@ export const HeroSection = () => {
           </div>
           starts here
         </div>
+
         <div className={styles.buttons}>
           <Link to="/documentation" className={styles.primaryButton}>
             Explore Docs
