@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Homepage from './pages/Homepage';
-import Blog from './pages/Blog';
-import AppRepository from './pages/AppRepository';
-import Documentation from './pages/Documentation';
-import AboutMe from './pages/AboutMe';
+import Homepage from './components/Homepage/Homepage';
+import Blog from './components/Blog/Blog';
+import AppRepository from './components/AppRepository/AppRepository';
+import Documentation from './components/Documentation/Documentation';
+import AboutMe from './components/AboutMe/AboutMe';
 import './App.css';
 import './global.css';
 

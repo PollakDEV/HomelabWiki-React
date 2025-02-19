@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import TerminalSection from '../components/AboutMe/TerminalSection/TerminalSection';
-import HeroSection from '../components/AboutMe/HeroSection/HeroSection';
-import SkillsSection from '../components/AboutMe/SkillsSection/SkillsSection';
-import ProjectsSection from '../components/AboutMe/ProjectsSection/ProjectsSection';
-import ContactSection from '../components/AboutMe/ContactSection/ContactSection';
+import TerminalSection from './TerminalSection/TerminalSection';
+import HeroSection from './HeroSection/HeroSection';
+import SkillsSection from './SkillsSection/SkillsSection';
+import ProjectsSection from './ProjectsSection/ProjectsSection';
+import GithubSection from './GithubSection/GithubSection';
+import ContactSection from './ContactSection/ContactSection';
 import styles from './AboutMe.module.css';
 
 const AboutMe = () => {
@@ -19,6 +20,7 @@ const AboutMe = () => {
           <HeroSection />
           <SkillsSection />
           <ProjectsSection />
+          <GithubSection />
           <ContactSection />
         </section>
       )}
