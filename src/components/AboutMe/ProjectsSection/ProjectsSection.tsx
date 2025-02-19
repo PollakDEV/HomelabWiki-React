@@ -29,15 +29,15 @@ const ProjectsSection = () => {
       title: 'HomelabWiki',
       description: 'A great librery of knowledge for homelabbers',
       techStack: ['React', 'Typescript', 'SCSS'],
-      imageUrl:
-        'https://i.ibb.co/hFKgvGCg/Homelab-Wiki-project.png',
+      imageUrl: 'https://i.ibb.co/hFKgvGCg/Homelab-Wiki-project.png',
+      link: 'https://homelabwiki.pl',
     },
     {
       title: 'Neural Nexus',
       description: 'AI-powered assistant with natural language processing capabilities',
       techStack: ['Python', 'TensorFlow', 'React'],
-      imageUrl:
-        'https://blob.cloudcomputing.id/images/0ce11f98-2aad-483f-8e73-371313e8da81/ilustrasi-ai-l-v1-min.jpg',
+      imageUrl: 'https://blob.cloudcomputing.id/images/0ce11f98-2aad-483f-8e73-371313e8da81/ilustrasi-ai-l-v1-min.jpg',
+      link: 'https://neural-nexus.com',
     },
     
   ];
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
                 ))}
               </div>
               <div className={styles.projectLinks}>
-                <a href="#" className={`${styles.linkButton} ${styles.demo}`}>
+                <a href={project.link} className={`${styles.linkButton} ${styles.demo}`}>
                   Live Demo
                   <div className={styles.linkTrail} />
                 </a>
