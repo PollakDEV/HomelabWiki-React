@@ -231,10 +231,10 @@
     }
 
     .contributionDay.level-0 { background-color: var(--github-card-bg); }
-    .contributionDay.level-1 { background-color: rgba(0, 159, 253, 0.3); } /* Light */
-    .contributionDay.level-2 { background-color: rgba(0, 159, 253, 0.6); } /* Medium */
-    .contributionDay.level-3 { background-color: rgba(0, 159, 253, 0.8); } /* Dark */
-    .contributionDay.level-4 { background-color: rgba(0, 159, 253, 1); }   /* Full color */
+    .contributionDay.level-1 { background-color: rgba(0, 159, 253, 0.2); } /* Light */
+    .contributionDay.level-2 { background-color: rgba(0, 159, 253, 0.4); } /* Medium */
+    .contributionDay.level-3 { background-color: rgba(0, 159, 253, 0.6); } /* Dark */
+    .contributionDay.level-4 { background-color: rgba(0, 159, 253, 0.8); }   /* Full color */
 
     .contributionsGrid::before {
       content: 'Jan';
