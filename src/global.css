@@ -1,9 +1,8 @@
 :root {
-  /* Dark Theme */
   --clrPrimary: #1a1a1a;
   --clrSecondary: #009FFD;
-  --clrAccent: #c300ff;     /* Lighter Indigo */
-  --clrText: #ebe5e5;        /* Gray-200 */
+  --clrAccent: #c300ff;
+  --clrText: #ebe5e5;
   
   /* Navbar */
   --nav-bg: rgba(18, 18, 18, 0.2);
@@ -11,7 +10,7 @@
   --accent: #00ff88;
   --nav-border: rgba(255, 255, 255, 0.1);
 }
-/* Base Styles */  
+
 * {
   margin: 0;
   padding: 0;

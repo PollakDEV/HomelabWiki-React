@@ -1,179 +1,175 @@
-/* Contact Section Styles */
 .contactSection {
-    max-width: 1200px;
-    margin: 6rem auto;
-    padding: 0 2rem;
-  }
-  
-  .contactSection h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-    color: var(--clrSecondary);
-    position: relative;
-  }
-  
-  .contactSection h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: var(--clrAccent);
-  }
-  
-  .contactGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-  }
-  
-  /* Contact Card Styles */
-  .contactCard {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contactCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 159, 253, 0.1);
-  }
-  
-  .cardIcon {
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 159, 253, 0.1);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cardIcon svg {
-    color: var(--clrSecondary);
-  }
-  
-  .contactCard h3 {
-    color: var(--clrSecondary);
-    margin-bottom: 0.5rem;
-  }
-  
-  .contactCard p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cardLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--clrAccent);
-    text-decoration: none;
-    font-weight: 500;
-    transition: gap 0.3s ease;
-  }
-  
-  .cardLink span {
-    transition: transform 0.3s ease;
-  }
-  
-  .cardLink:hover {
-    gap: 1rem;
-  }
-  
-  .cardLink:hover span {
-    transform: rotate(45deg);
-  }
-  
-  /* Contact Form Styles */
-  .contactForm {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .formGroup {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  
-  .formGroup input,
-  .formGroup textarea {
-    width: 100%;
-    padding: 1rem 0;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    background: transparent;
-    color: white;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .formGroup label {
-    position: absolute;
-    left: 0;
-    top: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  
-  .formGroup input:focus,
-  .formGroup textarea:focus,
-  .formGroup input:valid,
-  .formGroup textarea:valid {
-    outline: none;
-    border-bottom-color: var(--clrAccent);
-  }
-  
-  .formGroup input:focus ~ label,
-  .formGroup textarea:focus ~ label,
-  .formGroup input:valid ~ label,
-  .formGroup textarea:valid ~ label {
-    transform: translateY(-1.5rem);
-    font-size: 0.8rem;
-    color: var(--clrAccent);
-  }
-  
-  .glowButton {
-    position: relative;
-    background: linear-gradient(45deg, var(--clrSecondary), var(--clrAccent));
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 100%;
-    font-weight: 500;
-    transition: transform 0.3s ease;
-  }
-  
-  .buttonPulse {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    top: 0;
-    left: -100%;
-    transition: left 0.3s ease;
-  }
-  
-  .glowButton:hover {
-    transform: translateY(-2px);
-  }
-  
-  .glowButton:hover .buttonPulse {
-    left: 100%;
-  }
-  
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+}
+
+.contactSection h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  color: var(--clrSecondary);
+  position: relative;
+}
+
+.contactSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--clrAccent);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.contactCard {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 159, 253, 0.1);
+}
+
+.cardIcon {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 159, 253, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.cardIcon svg {
+  color: var(--clrSecondary);
+}
+
+.contactCard h3 {
+  color: var(--clrSecondary);
+  margin-bottom: 0.5rem;
+}
+
+.contactCard p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clrAccent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: gap 0.3s ease;
+}
+
+.cardLink span {
+  transition: transform 0.3s ease;
+}
+
+.cardLink:hover {
+  gap: 1rem;
+}
+
+.cardLink:hover span {
+  transform: rotate(45deg);
+}
+
+.contactForm {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formGroup label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup input:valid,
+.formGroup textarea:valid {
+  outline: none;
+  border-bottom-color: var(--clrAccent);
+}
+
+.formGroup input:focus~label,
+.formGroup textarea:focus~label,
+.formGroup input:valid~label,
+.formGroup textarea:valid~label {
+  transform: translateY(-1.5rem);
+  font-size: 0.8rem;
+  color: var(--clrAccent);
+}
+
+.glowButton {
+  position: relative;
+  background: linear-gradient(45deg, var(--clrSecondary), var(--clrAccent));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.buttonPulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  top: 0;
+  left: -100%;
+  transition: left 0.3s ease;
+}
+
+.glowButton:hover {
+  transform: translateY(-2px);
+}
+
+.glowButton:hover .buttonPulse {
+  left: 100%;
+}
