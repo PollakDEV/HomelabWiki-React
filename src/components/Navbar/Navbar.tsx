@@ -15,7 +15,7 @@ const Navbar = () => {
     { name: 'Blog', path: '/blog' },
     { name: 'Apps', path: '/app-repository' },
     { name: 'Docs', path: '/documentation' },
-    { name: 'About', path: '/about-me' },
+    { name: 'About Me', path: '/about-me' },
   ];
 
   const checkMobile = () => setIsMobile(window.innerWidth <= 860);
